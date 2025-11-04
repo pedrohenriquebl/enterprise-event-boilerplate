@@ -1,6 +1,7 @@
 import { fetchThemeFromServer } from "@/lib/theme";
 import { ThemeProvider } from "@/context/ThemeContext";
 import "./globals.css";
+import { NextIntlClientProvider } from 'next-intl';
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -34,6 +35,9 @@ export default async function RootLayout({
       >
         <ThemeProvider initialTheme={theme}>
           {children}
+          <NextIntlClientProvider>
+            {children}
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>

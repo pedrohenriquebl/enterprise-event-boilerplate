@@ -1,7 +1,11 @@
+import { useTranslations } from 'next-intl';
+
 export default function LoginPage() {
+    const t = useTranslations('LoginPage');
+
     return (
         <>
-            <h1>Login</h1>
+            <h1>{t('Login')}</h1>
         </>
     );
 }
