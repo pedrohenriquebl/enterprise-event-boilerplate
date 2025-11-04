@@ -3,6 +3,7 @@ import { ThemeProvider } from "@/context/ThemeContext";
 import "./globals.css";
 import { NextIntlClientProvider } from 'next-intl';
 import type { Metadata } from "next";
+import { AuthProvider } from "@/context/AuthContext";
 
 export const metadata: Metadata = {
   title: "Energy Summit",
@@ -35,7 +36,9 @@ export default async function RootLayout({
       >
         <ThemeProvider initialTheme={theme}>
           <NextIntlClientProvider>
-            {children}
+            <AuthProvider>
+              {children}
+            </AuthProvider>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

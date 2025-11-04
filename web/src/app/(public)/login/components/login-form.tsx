@@ -6,10 +6,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/app/components/ui/input";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { useAuth } from "@/app/hooks/useAuth";
+import { redirect } from "next/navigation";
+import { useState } from "react";
 
 export default function LoginForm() {
     const t = useTranslations('LoginPage');
     const schema = getLoginFormSchema(t);
+    const { login } = useAuth();
+    const [loginError, setLoginError] = useState<string | null>(null);
 
     const {
         register,
@@ -19,8 +24,14 @@ export default function LoginForm() {
         resolver: zodResolver(schema)
     })
 
-    const onSubmit = (data: LoginFormData) => {
-        console.log(data);
+    const onSubmit = async (data: LoginFormData) => {
+        const { email, password } = data;
+        const result = await login(email, password);
+        if (result.success) {
+            redirect('/dashboard');
+        } else {
+            setLoginError(result.message || t('InvalidCredentials'));
+        }
     }
 
     return (
@@ -61,6 +72,11 @@ export default function LoginForm() {
             >
                 {t('Login')}
             </button>
+            {loginError && (
+                <div className="text-(--error-color) text-sm mb-4">
+                    {loginError}
+                </div>
+            )}
         </form>
     )
 }

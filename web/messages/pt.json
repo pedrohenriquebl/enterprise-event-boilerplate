@@ -5,6 +5,9 @@
     "Password": "Senha",
     "Email": "E-mail",
     "InvalidEmail": "Informe um e-mail válido",
-    "PasswordMinLength": "A senha precisa ter ao menos 6 caracteres"
+    "PasswordMinLength": "A senha precisa ter ao menos 6 caracteres",
+    "LoginFailed": "Falha no login. Verifique suas credenciais e tente novamente.",
+    "InvalidCredentials": "E-mail ou senha inválidos.",
+    "Invalid Credentials": "E-mail ou senha inválidos."
   }
 }

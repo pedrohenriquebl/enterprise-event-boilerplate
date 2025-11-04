@@ -5,6 +5,9 @@
     "Password": "Password",
     "Email": "Email",
     "InvalidEmail": "Please enter a valid email",
-    "PasswordMinLength": "Password must be at least 6 characters"
+    "PasswordMinLength": "Password must be at least 6 characters",
+    "LoginFailed": "Login failed. Please check your credentials and try again.",
+    "InvalidCredentials": "Invalid email or password.",
+    "Invalid Credentials": "Invalid email or password."
   }
 }
