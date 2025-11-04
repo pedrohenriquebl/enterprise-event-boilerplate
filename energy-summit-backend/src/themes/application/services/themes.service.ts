@@ -6,6 +6,7 @@ export type Theme = {
   variables: Record<string, string>;
   assets?: Partial<{
     logo: string;
+    logoFooter?: string;
     banner: string;
     favicon: string;
   }>;
@@ -22,6 +23,8 @@ export class ThemesService {
         name: 'Default Theme',
         variables: {
           '--background': '#ffffff',
+          '--color-black': '#000000',
+          '--color-white': '#ffffff',
           '--body-bg': '#FAFAFA',
           '--foreground': '#202020',
           '--text-primary': '#202020',
@@ -51,8 +54,9 @@ export class ThemesService {
           '--foreground-contrast': '#0f172a',
         },
         assets: {
-          logo: 'logo-default.png',
-          banner: 'banner-default.png',
+          logo: 'logo/logo-energy.svg',
+          logoFooter: 'logo/logo-energy-footer.svg',
+          banner: 'banner/login-background.png',
           favicon: 'favicon-default.ico',
         },
       },
