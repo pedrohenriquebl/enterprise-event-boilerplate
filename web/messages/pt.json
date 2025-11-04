@@ -1,5 +1,10 @@
 {
   "LoginPage": {
-    "Login": "Entrar"
+    "Login": "Entrar",
+    "Retrieve Password": "Recuperar Senha",
+    "Password": "Senha",
+    "Email": "E-mail",
+    "InvalidEmail": "Informe um e-mail válido",
+    "PasswordMinLength": "A senha precisa ter ao menos 6 caracteres"
   }
 }

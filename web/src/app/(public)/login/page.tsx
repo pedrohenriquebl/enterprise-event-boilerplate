@@ -1,11 +1,10 @@
-import { useTranslations } from 'next-intl';
+import LoginForm from './components/login-form';
 
 export default function LoginPage() {
-    const t = useTranslations('LoginPage');
 
     return (
-        <>
-            <h1>{t('Login')}</h1>
-        </>
+        <section className='w-full mx-auto'>
+            <LoginForm />
+        </section>
     );
 }

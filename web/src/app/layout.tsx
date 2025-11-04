@@ -34,7 +34,6 @@ export default async function RootLayout({
         suppressHydrationWarning
       >
         <ThemeProvider initialTheme={theme}>
-          {children}
           <NextIntlClientProvider>
             {children}
           </NextIntlClientProvider>

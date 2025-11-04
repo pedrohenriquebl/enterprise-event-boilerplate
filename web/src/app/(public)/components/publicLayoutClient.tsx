@@ -28,7 +28,7 @@ export default function PublicLayoutClient({
                     backgroundPosition: 'center',
                 }}
             >
-                <div className="w-full max-w-[1276px] mx-auto p-8 rounded-2xl shadow-lg bg-white/80">
+                <div className="container mx-auto w-full">
                     {children}
                 </div>
             </main>
