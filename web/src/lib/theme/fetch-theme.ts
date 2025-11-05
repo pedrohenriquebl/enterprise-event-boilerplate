@@ -41,7 +41,6 @@ export async function fetchThemeFromServer() {
       },
     };
 
-    console.log("✅ Theme loaded:", themeWithNormalizedAssets);
     return themeWithNormalizedAssets;
   } catch (err) {
     console.error("❌ fetchThemeFromServer: Erro:", err);

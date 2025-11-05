@@ -7,7 +7,24 @@
     "InvalidEmail": "Informe um e-mail válido",
     "PasswordMinLength": "A senha precisa ter ao menos 6 caracteres",
     "LoginFailed": "Falha no login. Verifique suas credenciais e tente novamente.",
-    "InvalidCredentials": "E-mail ou senha inválidos.",
-    "Invalid Credentials": "E-mail ou senha inválidos."
+    "InvalidCredentials": "Credenciais informadas não correspondem com nossos registros."
+  },
+  "ForgotPasswordPage": {
+    "InvalidEmailRequestPassword": "Informe um e-mail válido",
+    "Retrieve Password": "Recuperar Senha",
+    "Send": "Enviar",
+    "SuccesForgetPasswordMessage": "Enviamos um link para redefinir a sua senha por e-mail.",
+    "We were unable to find any users with the email address provided": "Não conseguimos encontrar nenhum usuário com o endereço de e-mail fornecido.",
+    "WrongCredentials": "As credenciais fornecidas não correspondem aos nossos registros."
+  },
+  "PasswordResetPage": {
+    "PasswordsDoNotMatch": "A confirmação para o campo Senha não coincide.",
+    "PasswordMinLength": "O campo Senha deve conter no mínimo 8 caracteres.",
+    "Reset Password": "Resetar Senha",
+    "Password": "Senha",
+    "Confirm Password": "Confirmar Senha",
+    "InvalidEmailRequestPassword": "Informe um endereço de e-mail válido.",
+    "InvalidToken": "O token de redefinição de senha é inválido ou expirou.",
+    "SuccessResetPasswordMessage": "Sua senha foi redefinida com sucesso. Você já pode fazer login com sua nova senha."
   }
 }

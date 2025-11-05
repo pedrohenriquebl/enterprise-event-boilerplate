@@ -8,7 +8,7 @@ type PublicHeaderProps = {
 
 export default function PublicHeader({ title, logoUrl }: PublicHeaderProps) {
     return (
-        <header className="flex items-center justify-between my-6">
+        <header className="flex items-center justify-between my-6 px-6 md:px-12 gap-6">
             <Image
                 src={logoUrl || '/logo/logo-energy.svg'}
                 alt={`Logo for ${title}`}

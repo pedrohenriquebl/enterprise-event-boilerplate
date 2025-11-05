@@ -1,7 +1,10 @@
-export default function ForgotPassword() {
+import ForgetPasswordForm from "./components/forget-password-form";
+
+export default function LoginPage() {
+
     return (
-        <>
-            <h1>Forgot Password</h1>
-        </>
+        <section className='w-full mx-auto'>
+            <ForgetPasswordForm />
+        </section>
     );
 }

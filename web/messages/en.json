@@ -7,7 +7,24 @@
     "InvalidEmail": "Please enter a valid email",
     "PasswordMinLength": "Password must be at least 6 characters",
     "LoginFailed": "Login failed. Please check your credentials and try again.",
-    "InvalidCredentials": "Invalid email or password.",
-    "Invalid Credentials": "Invalid email or password."
+    "InvalidCredentials": "The credentials provided do not match our records."
+  },
+  "ForgotPasswordPage": {
+    "We were unable to find any users with the email address provided": "We were unable to find any users with the email address provided.",
+    "InvalidEmailRequestPassword": "Please enter a valid email address.",
+    "Retrieve Password": "Retrieve Password",
+    "Send": "Send",
+    "SuccesForgetPasswordMessage": "We have sent you an email with a link to reset your password.",
+    "WrongCredentials": "The credentials provided do not match our records."
+  },
+  "PasswordResetPage": {
+    "Reset Password": "Reset Password",
+    "PasswordsDoNotMatch": "The confirmation for the Password field does not match.",
+    "PasswordMinLength": "The Password field must contain at least 8 characters.",
+    "Password": "Password",
+    "Confirm Password": "Confirm Password",
+    "InvalidEmailRequestPassword": "Please enter a valid email address.",
+    "InvalidToken": "The password reset token is invalid or has expired.",
+    "SuccessResetPasswordMessage": "Your password has been successfully reset. You can now log in with your new password."
   }
 }

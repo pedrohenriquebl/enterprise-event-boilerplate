@@ -22,14 +22,14 @@ export default function PublicLayoutClient({
         >
 
             <header className="w-full bg-white relative z-10">
-                <div className="max-w-[1276px] mx-auto">
+                <div className="w-full">
                     <PublicHeader title={'Logo'} logoUrl={'/logo/logo-energy.svg'} />
                 </div>
             </header>
 
             <main className={`flex-1 flex items-center justify-center w-full relative z-10`}
             >
-                <div className="container mx-auto w-full">
+                <div className="w-full px-4 md:px-12">
                     {children}
                 </div>
             </main>

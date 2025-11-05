@@ -28,7 +28,7 @@ export default function LoginForm() {
     const onSubmit = async (data: LoginFormData) => {
         const { email, password } = data;
         const result = await login(email, password);
-        console.log('Login result:', result);
+
         if (result.success) {
             redirect('/dashboard');
         } else {
@@ -39,10 +39,15 @@ export default function LoginForm() {
     return (
         <form
             onSubmit={handleSubmit(onSubmit)}
-            className='max-w-[522px] w-full bg-(--secondary-bg) p-3 sm:p-8 md:p-12 flex flex-col justify-start'>
-            <legend className='border-none text-white text-2xl leading-[1.3] font-bold mb-4'>{t('Login')}</legend>
+            className='max-w-[522px] w-full bg-(--secondary-bg) p-12 flex flex-col justify-start'>
+            <legend className='border-none text-white text-2xl leading-[1.3] font-bold mb-4'>Login</legend>
+            {loginError && (
+                <div className="flex col justify-start my-4 p-2 bg-(--background-status-incompletd) border border-(--error-color) rounded-sm">
+                    <span className="text-(--error-color)">{loginError}</span>
+                </div>
+            )}
             <fieldset className='flex flex-col gap-4 justify-start border-none'>
-                <div className=''>
+                <div>
                     <Input
                         type="email"
                         {...register("email")}
@@ -51,7 +56,7 @@ export default function LoginForm() {
                     />
                     {errors.email && <span className="text-(--error-color) text-sm mt-1">{errors.email.message}</span>}
                 </div>
-                <div className=''>
+                <div>
                     <Input
                         type="password"
                         placeholder={t('Password')}
@@ -83,11 +88,6 @@ export default function LoginForm() {
                     <span>{t('Login')}</span>
                 )}
             </button>
-            {loginError && (
-                <div className="text-(--error-color) text-sm mb-4">
-                    {loginError}
-                </div>
-            )}
         </form>
     )
 }
