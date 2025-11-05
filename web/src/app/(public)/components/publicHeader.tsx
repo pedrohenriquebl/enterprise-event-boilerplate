@@ -9,7 +9,16 @@ type PublicHeaderProps = {
 export default function PublicHeader({ title, logoUrl }: PublicHeaderProps) {
     return (
         <header className="flex items-center justify-between my-6">
-            <Image src={logoUrl || '/default-logo.png'} alt={`Logo for ${title}`} width={134} height={54} />
+            <Image
+                src={logoUrl || '/logo/logo-energy.svg'}
+                alt={`Logo for ${title}`}
+                width={134}
+                height={54}
+                priority
+                loading="eager"
+                unoptimized
+                crossOrigin="anonymous"
+            />
             <SwitchLanguage />
         </header>
     );

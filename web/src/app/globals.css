@@ -2,7 +2,33 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --body-bg: #FAFAFA;
+  --foreground: #202020;
+  --text-primary: #202020;
+  --text-details: #808080;
+  --text-secondary: #151631;
+  --cards-bg: #F9F9F9;
+  --component-bg: #E9E9E9;
+  --language-bg-primary: #222222;
+  --secondary-bg: #151631;
+  --language-auth-primary-bg: #F2F2F2;
+  --accent: #4DCF47;
+  --accent-dark: #078E38;
+  --primary: #0066ff;
+  --accent-secondary: #00b894;
+  --profile-border: 1px solid #D9D9D9;
+  --selected-sidebar-bg-gradient: linear-gradient(90deg, var(--accent-dark) 6%, var(--accent) 100%);
+  --button-disabled-bg: #808080;
+  --status-completed-bg: #C2FFBF;
+  --text-status-completd: #078E38;
+  --background-status-incompletd: #FFD3D0;
+  --text-status-incompletd: #EE5146;
+  --error-color: #EE5146;
+  --input-border: 1px solid #282828;
+  --scroll-bar-thumb: #BFBFBF;
+  --scroll-bar-track: #F2F2F2;
+  --cards-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  --foreground-contrast: #0f172a;
 }
 
 @theme inline {
@@ -32,4 +58,10 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.public-main {
+  background-image: url("/banner/login-background.png");
+  background-size: cover;
+  background-position: center;
 }

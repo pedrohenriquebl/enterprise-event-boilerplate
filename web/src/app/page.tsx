@@ -1,10 +1,9 @@
-// src/app/page.tsx
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 
 export default async function RootRedirectPage() {
   const cookieStore = await cookies();
-  const token = cookieStore.get("auth_token");
+  const token = cookieStore.get("token");
 
   if (token) {
     redirect("/dashboard");

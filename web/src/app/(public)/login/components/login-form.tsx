@@ -9,6 +9,7 @@ import { useTranslations } from "next-intl";
 import { useAuth } from "@/app/hooks/useAuth";
 import { redirect } from "next/navigation";
 import { useState } from "react";
+import Spinner from '@/app/components/ui/Spinner';
 
 export default function LoginForm() {
     const t = useTranslations('LoginPage');
@@ -27,6 +28,7 @@ export default function LoginForm() {
     const onSubmit = async (data: LoginFormData) => {
         const { email, password } = data;
         const result = await login(email, password);
+        console.log('Login result:', result);
         if (result.success) {
             redirect('/dashboard');
         } else {
@@ -67,10 +69,19 @@ export default function LoginForm() {
             <button
                 type="submit"
                 disabled={isSubmitting}
+                aria-busy={isSubmitting}
+                aria-disabled={isSubmitting}
                 className='w-fit py-3.5 px-4 border-none bg-(--accent) hover:bg-(--accent-dark) cursor-pointer
-                    text-(--text-secondary) font-bold text-sm leading-[1.4] transition-colors duration-300 ease'
+                    text-(--text-secondary) font-bold text-sm leading-[1.4] transition-colors duration-300 ease flex items-center'
             >
-                {t('Login')}
+                {isSubmitting ? (
+                    <>
+                        <Spinner className="animate-spin -ml-1 mr-2 h-4 w-4" size={16} />
+                        <span>{t('Login')}</span>
+                    </>
+                ) : (
+                    <span>{t('Login')}</span>
+                )}
             </button>
             {loginError && (
                 <div className="text-(--error-color) text-sm mb-4">

@@ -1,0 +1,41 @@
+import { NextRequest, NextResponse } from "next/server";
+
+export function proxy(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  const publicPaths = [
+    "/login",
+    "/forget-password",
+    "/reset-password",
+    "/api/theme",
+    "/themes",
+  ];
+
+  const assetExtensions = [
+    ".svg",
+    ".png",
+    ".jpg",
+    ".jpeg",
+    ".gif",
+    ".ico",
+    ".webp",
+  ];
+  const isAsset = assetExtensions.some((ext) => pathname.endsWith(ext));
+
+  if (
+    publicPaths.includes(pathname) ||
+    isAsset ||
+    pathname.startsWith("/_next/") ||
+    pathname.startsWith("/logo/") ||
+    pathname.startsWith("/banner/")
+  ) {
+    return NextResponse.next();
+  }
+
+  const token = request.cookies.get("token")?.value;
+  if (!token) {
+    return NextResponse.redirect(new URL("/login", request.url));
+  }
+
+  return NextResponse.next();
+}

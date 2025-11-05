@@ -2,17 +2,49 @@ import { fallbackTheme } from "./fallback-theme";
 
 export async function fetchThemeFromServer() {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+    const backendUrl =
+      process.env.BACKEND_INTERNAL_URL || "http://localhost:3000";
 
-    const res = await fetch(`${baseUrl}/themes`, {
-      next: { revalidate: 3600 },
+    const res = await fetch(`${backendUrl}/themes`, {
+      cache: "no-store",
     });
 
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    return data?.[0] ?? fallbackTheme;
+
+    const themes = await res.json();
+    const theme = themes?.[0] ?? fallbackTheme;
+
+    const normalizeAssetPath = (asset: string | undefined) => {
+      if (!asset) return undefined;
+
+      if (asset.startsWith("http://") || asset.startsWith("https://")) {
+        try {
+          const url = new URL(asset);
+          return url.pathname.startsWith("/")
+            ? url.pathname.slice(1)
+            : url.pathname;
+        } catch {
+          return asset;
+        }
+      }
+
+      return asset.startsWith("/") ? asset.slice(1) : asset;
+    };
+
+    const themeWithNormalizedAssets = {
+      ...theme,
+      assets: {
+        logo: normalizeAssetPath(theme.assets?.logo),
+        logoFooter: normalizeAssetPath(theme.assets?.logoFooter),
+        banner: normalizeAssetPath(theme.assets?.banner),
+        favicon: normalizeAssetPath(theme.assets?.favicon),
+      },
+    };
+
+    console.log("✅ Theme loaded:", themeWithNormalizedAssets);
+    return themeWithNormalizedAssets;
   } catch (err) {
-    console.error("❌ Falha ao buscar tema:", err);
+    console.error("❌ fetchThemeFromServer: Erro:", err);
     return fallbackTheme;
   }
 }

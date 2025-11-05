@@ -32,4 +32,9 @@ export const fallbackTheme = {
     "--cards-shadow": "0 1px 2px rgba(0,0,0,0.04)",
     "--foreground-contrast": "#0f172a",
   },
+  assets: {
+    logo: "logo/logo-energy.svg",
+    logoFooter: "logo/logo-energy-footer.svg",
+    banner: "banner/login-background.png",
+  },
 };
