@@ -23,6 +23,7 @@ export class ThemesService {
         name: 'Default Theme',
         variables: {
           '--background': '#ffffff',
+          '--background-public-page-safeguard': '#065F3A',
           '--color-black': '#000000',
           '--color-white': '#ffffff',
           '--body-bg': '#FAFAFA',

@@ -1,7 +1,6 @@
 
 import { Theme } from "@/@types/theme";
 import PublicHeader from "./publicHeader";
-import Image from "next/image";
 
 export default function PublicLayoutClient({
     children,
@@ -13,24 +12,15 @@ export default function PublicLayoutClient({
     const bg = theme?.assets?.banner?.startsWith("/")
         ? theme.assets.banner
         : `/${theme?.assets?.banner ?? ""}`;
-    console.log("PublicLayoutClient: theme banner =", bg);
 
     return (
-        <div className="flex flex-col min-h-screen relative overflow-hidden">
-            {bg && (
-                <Image
-                    src={bg}
-                    alt="Background Banner"
-                    fill
-                    priority
-                    sizes="100vw"
-                    style={{
-                        objectFit: 'cover',
-                        objectPosition: 'center',
-                        zIndex: 0,
-                    }}
-                />
-            )}
+        <div className="flex flex-col min-h-screen relative overflow-hidden"
+            style={{
+                background: `url(${bg}) center/cover no-repeat, linear-gradient(180deg, 
+                    var(--background-public-page-safeguard, var(--background-public-page-safeguard) 0%, #043C24 100%)`,
+            }}
+        >
+
             <header className="w-full bg-white relative z-10">
                 <div className="max-w-[1276px] mx-auto">
                     <PublicHeader title={'Logo'} logoUrl={'/logo/logo-energy.svg'} />

@@ -16,7 +16,6 @@ export default function PublicHeader({ title, logoUrl }: PublicHeaderProps) {
                 height={54}
                 priority
                 loading="eager"
-                unoptimized
                 crossOrigin="anonymous"
             />
             <SwitchLanguage />
