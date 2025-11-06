@@ -21,7 +21,7 @@ export default function PublicLayoutClient({
             }}
         >
 
-            <header className="w-full bg-white relative z-10">
+            <header className="w-full bg-white relative z-10 h-[100px] flex items-center">
                 <div className="w-full">
                     <PublicHeader title={'Logo'} logoUrl={'/logo/logo-energy.svg'} />
                 </div>

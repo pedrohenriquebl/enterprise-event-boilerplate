@@ -7,6 +7,8 @@ export default async function RootRedirectPage() {
 
   const defaultLocale = "pt";
 
+  console.log("RootRedirectPage token:", token?.value);
+
   if (token) redirect(`/${defaultLocale}/dashboard`);
   redirect(`/${defaultLocale}/login`);
 }

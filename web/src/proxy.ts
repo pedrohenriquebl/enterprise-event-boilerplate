@@ -37,6 +37,11 @@ export function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // Se acessar raiz (/), deixa o page.tsx fazer o redirect
+  if (pathname === "/") {
+    return NextResponse.next();
+  }
+
   const i18nResponse = handleI18nRouting(request);
 
   if (i18nResponse.status === 307 || i18nResponse.status === 308) {

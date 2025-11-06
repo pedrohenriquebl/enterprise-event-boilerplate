@@ -4,7 +4,7 @@ import Image from "next/image";
 import { TriangleIcon } from "lucide-react";
 import { usePathname, useRouter } from "@/i18n/routing";
 import { useLocale } from "next-intl";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function SwitchLanguage() {
     const router = useRouter();
@@ -22,6 +22,7 @@ export default function SwitchLanguage() {
             setIsChangingLanguage(false);
             return;
         };
+
         setIsChangingLanguage(true);
         router.replace(pathname, { locale: lang });
     };
@@ -52,7 +53,7 @@ export default function SwitchLanguage() {
                         </span>
                         <TriangleIcon
                             className={`
-                            w-2 h-2 text-black fill-black rotate-180
+                            w-1.5 h-1.5 text-black fill-black rotate-180
                             ${isChangingLanguage && 'hidden'}
                         `}
                         />
