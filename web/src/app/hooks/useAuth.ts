@@ -10,7 +10,7 @@ export function useAuth() {
   const { user, setUser } = useAuthContext();
   const t = useTranslations("LoginPage");
   const tf = useTranslations("ForgotPasswordPage");
-  const ts = useTranslations("ResetPasswordPage");
+  const ts = useTranslations("PasswordResetPage");
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");

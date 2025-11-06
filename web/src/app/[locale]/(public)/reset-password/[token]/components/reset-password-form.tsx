@@ -6,7 +6,7 @@ import Spinner from "@/app/components/ui/Spinner";
 import { authService } from "@/lib/auth/auth-service";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 type ResetPasswordFormProps = {
@@ -57,7 +57,11 @@ export default function ResetPasswordForm({ token, email }: ResetPasswordFormPro
                 setSuccessMessage(false);
                 setRetrievePasswordError(t("InvalidToken"));
             }
-        } catch (err) {
+        } catch (err: unknown) {
+            if (err instanceof Error) {
+                setRetrievePasswordError(err.message);
+            }
+
             setSuccessMessage(false);
             setRetrievePasswordError(null);
             setInvalidTokenError(t("InvalidToken"));

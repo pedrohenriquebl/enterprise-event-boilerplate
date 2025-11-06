@@ -1,20 +1,22 @@
+// web/src/app/layout.tsx
 import { fetchThemeFromServer } from "@/lib/theme";
-import { ThemeProvider } from "@/context/ThemeContext";
 import "./globals.css";
-import { NextIntlClientProvider } from 'next-intl';
 import type { Metadata } from "next";
-import { AuthProvider } from "@/context/AuthContext";
+import { Archivo } from "next/font/google";
+
+const archivo = Archivo({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Energy Summit",
   description: "Suas palestras de energia renovável em um só lugar",
 };
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const theme = await fetchThemeFromServer();
-  const primaryColor = theme.variables["--primary"] || theme.variables["--accent"];
+  const bgColor = theme.variables['--body-bg'] || theme.variables['--background'] || '#FAFAFA';
+  const primaryColor = theme.variables["--primary"] || theme.variables["--accent"] || "#0066ff";
 
   const normalizePath = (path: string | undefined) => {
     if (!path) return undefined;
@@ -22,28 +24,40 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   };
 
   return (
-    <html lang="en">
+    <html>
       <head>
         {theme.assets?.favicon && (
           <link rel="icon" href={normalizePath(theme.assets.favicon)} type="image/x-icon" />
         )}
 
         {theme.assets?.banner && (
-          <link rel="preload" as="image" href={normalizePath(theme.assets.banner)} />
+          <link rel="preload" as="image" href={normalizePath(theme.assets.banner)} fetchPriority="high" />
         )}
         {theme.assets?.logo && (
-          <link rel="preload" as="image" href={normalizePath(theme.assets.logo)} />
+          <link rel="preload" as="image" href={normalizePath(theme.assets.logo)} fetchPriority="high" />
         )}
 
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            :root {
+              ${Object.entries(theme.variables).map(([k, v]) => `${k}: ${v};`).join('\n              ')}
+            }
+            
+            html, body {
+              background-color: ${bgColor};
+              margin: 0;
+              padding: 0;
+            }
+          `
+        }} />
+
         <meta name="theme-color" content={primaryColor} />
-        <title>{theme.name}</title>
       </head>
-      <body style={Object.fromEntries(Object.entries(theme.variables))} suppressHydrationWarning>
-        <NextIntlClientProvider>
-          <ThemeProvider initialTheme={theme}>
-            <AuthProvider>{children}</AuthProvider>
-          </ThemeProvider>
-        </NextIntlClientProvider>
+      <body
+        className={archivo.className}
+        suppressHydrationWarning
+      >
+        {children}
       </body>
     </html>
   );

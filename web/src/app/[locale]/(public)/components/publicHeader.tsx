@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SwitchLanguage from "./switchLanguage";
+import SwitchLanguage from "../../../components/switchLanguage";
 
 type PublicHeaderProps = {
     title?: string;

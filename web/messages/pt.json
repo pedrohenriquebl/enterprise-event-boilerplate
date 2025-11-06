@@ -10,9 +10,15 @@
     "InvalidCredentials": "Credenciais informadas não correspondem com nossos registros."
   },
   "ForgotPasswordPage": {
-    "InvalidEmailRequestPassword": "Informe um e-mail válido",
     "Retrieve Password": "Recuperar Senha",
+    "Email": "E-mail",
+    "EmailRequired": "E-mail é obrigatório",
+    "InvalidEmail": "Informe um e-mail válido",
     "Send": "Enviar",
+    "Sending": "Enviando...",
+    "UserNotFound": "Não conseguimos encontrar nenhum usuário com o endereço de e-mail fornecido",
+    "EmailSent": "Enviamos um link para redefinir a sua senha por e-mail.",
+    "InvalidEmailRequestPassword": "Informe um e-mail válido",
     "SuccesForgetPasswordMessage": "Enviamos um link para redefinir a sua senha por e-mail.",
     "We were unable to find any users with the email address provided": "Não conseguimos encontrar nenhum usuário com o endereço de e-mail fornecido.",
     "WrongCredentials": "As credenciais fornecidas não correspondem aos nossos registros."

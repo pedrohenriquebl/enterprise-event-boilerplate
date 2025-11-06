@@ -10,11 +10,17 @@
     "InvalidCredentials": "The credentials provided do not match our records."
   },
   "ForgotPasswordPage": {
-    "We were unable to find any users with the email address provided": "We were unable to find any users with the email address provided.",
-    "InvalidEmailRequestPassword": "Please enter a valid email address.",
     "Retrieve Password": "Retrieve Password",
+    "Email": "Email",
+    "EmailRequired": "Email is required",
+    "InvalidEmail": "Please enter a valid email address",
     "Send": "Send",
+    "Sending": "Sending...",
+    "UserNotFound": "We were unable to find any users with the email address provided",
+    "EmailSent": "We have sent you an email with a link to reset your password.",
+    "InvalidEmailRequestPassword": "Please enter a valid email address.",
     "SuccesForgetPasswordMessage": "We have sent you an email with a link to reset your password.",
+    "We were unable to find any users with the email address provided": "We were unable to find any users with the email address provided.",
     "WrongCredentials": "The credentials provided do not match our records."
   },
   "PasswordResetPage": {

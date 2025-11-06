@@ -4,12 +4,12 @@ import { getLoginFormSchema, LoginFormData } from "@/@types/login-form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/app/components/ui/input";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useAuth } from "@/app/hooks/useAuth";
 import { redirect } from "next/navigation";
 import { useState } from "react";
 import Spinner from '@/app/components/ui/Spinner';
+import { LocalizedLink } from "@/app/components/localized-link";
 
 export default function LoginForm() {
     const t = useTranslations('LoginPage');
@@ -66,11 +66,11 @@ export default function LoginForm() {
                     {errors.password && <span className="text-(--error-color) text-sm mt-1">{errors.password.message}</span>}
                 </div>
             </fieldset>
-            <Link href="/forgot-password"
+            <LocalizedLink href="/forgot-password"
                 className='no-underline text-(--accent) hover:text-(--accent-dark) font-bold text-sm my-8'
             >
                 {t('Retrieve Password')}
-            </Link>
+            </LocalizedLink>
             <button
                 type="submit"
                 disabled={isSubmitting}
